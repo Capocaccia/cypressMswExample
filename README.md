@@ -17,9 +17,8 @@ Procure your own key here: https://openweathermap.org/price
 Use this key and replace the API_KEY in App.js with your key.
 
 ```javascript
-//index.js
-
-worker.start();
+  // index.js
+  worker.start();
 ```
 
 You can start the application with the commands in package.json without MSW active. In Cypress/support/index.js we utilize the Cypress Lifecycle Hook to start MSW when the tests are executed.

@@ -20,5 +20,15 @@ import { worker } from '../../src/mocks/browser';
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 Cypress.on('test:before:run:async', async () => {
-   await worker.start();
+   
+   if(window.msw) {
+      console.log('MSW is already running.')
+   }
+
+   //if MSW wasnt started by the app, Cypress needs to start it
+   if(!window.msw){ 
+      console.log('MSW has not been started. Starting now.')
+      await worker.start();
+   }
+
 });

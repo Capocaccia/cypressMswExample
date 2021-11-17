@@ -9,6 +9,7 @@ function KtoF(tempKevlin) {
 function App() {
   const [weatherResult, setWeather] = useState(null)
   const [city, setCity] = useState('Memphis')
+  const API_KEY ='PUT_YOUR_API_KEY_HERE'
 
   // the API key below is a free public API key.  
   // Procure your own key here: https://openweathermap.org/price
