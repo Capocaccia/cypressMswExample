@@ -1,0 +1,4 @@
+{
+  "fixturesFolder": "./src/fixtures",
+  "baseUrl": "http://localhost:3000"
+}

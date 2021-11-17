@@ -1,23 +1,63 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
+
+function KtoF(tempKevlin) {
+  return ((tempKevlin - 273.15) * 9) / 5 + 32;
+}
+
 
 function App() {
+  const [weatherResult, setWeather] = useState(null)
+  const [city, setCity] = useState('Memphis')
+
+  //the API key below is a free public API key.  
+  // If it hits the API limit, you can use mock data by following the README or procure your own key here: https://openweathermap.org/price
+  useEffect(() => {
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7a1aee5bb4595b761d88350a7fa93b5b`
+    )
+      .then((r) => r.json())
+      .then((result) => setWeather(result));
+  }, [city])
+
+  const handleChange = (event) => {
+    setCity(event.target.value);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <div>
+        <h1>
+          If you want to run this app against mock data, uncomment the following line in index.js
+        </h1>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          <code>
+            worker.start()
+          </code>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </div>
+      <div>
+        <label>
+          Pick A City:
+          <select value={city} onChange={handleChange}>
+            <option value="Memphis">Memphis</option>
+            <option value="Atlanta">Atlanta</option>
+            <option value="Denver">Denver</option>
+            <option value="Amsterdam">Amsterdam</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <h2>{city}</h2>
+        <p data-testId="temperatureWrapper">
+          Temperature:{" "}
+          {weatherResult && KtoF(weatherResult?.main?.temp).toFixed(0)}
+          &#8457;
+        </p>
+        <p data-testId="weatherDescription">
+          Description: {weatherResult && weatherResult?.weather[0]?.description}
+        </p>
+      </div>
     </div>
   );
 }
