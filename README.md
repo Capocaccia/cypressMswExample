@@ -12,9 +12,13 @@
 
 In this app, I am using Mock Service Worker to mock API calls in the client and Cypress. In this structure, the app does not have to be utilizing Mock Service Worker when Cypress runs. Cypress can activate MSW and use its mocking capability on its own.
 
-If you want to use MSW (mock data) client-side, uncomment the command below in index.js
+By default this app is using mock data served by Mock Service Worker. If you would like to use live data, you will need to comment out the line below in index.js and procure your own free API key.
+Procure your own key here: https://openweathermap.org/price
+Use this key and replace the API_KEY in App.js with your key.
 
 ```javascript
+//index.js
+
 worker.start();
 ```
 

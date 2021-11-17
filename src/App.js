@@ -10,11 +10,12 @@ function App() {
   const [weatherResult, setWeather] = useState(null)
   const [city, setCity] = useState('Memphis')
 
-  //the API key below is a free public API key.  
-  // If it hits the API limit, you can use mock data by following the README or procure your own key here: https://openweathermap.org/price
+  // the API key below is a free public API key.  
+  // Procure your own key here: https://openweathermap.org/price
+  // to use real data, comment out worker.start() in index.js
   useEffect(() => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7a1aee5bb4595b761d88350a7fa93b5b`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
     )
       .then((r) => r.json())
       .then((result) => setWeather(result));

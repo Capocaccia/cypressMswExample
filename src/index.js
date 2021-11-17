@@ -4,8 +4,10 @@ import './index.css';
 import App from './App';
 const { worker } = require('./mocks/browser')
 
-//uncomment the line below to use Mock Service Worker in the application without Cypress.
-// worker.start()
+//Comment out the worker.start() line below to use real data.
+// Procure your free API key here: https://openweathermap.org/price
+// Replace API_KEY in app.js with your API key
+worker.start()
 
 ReactDOM.render(
   <React.StrictMode>
