@@ -7,7 +7,15 @@ const { worker } = require('./mocks/browser')
 //Comment out the worker.start() line below to use real data.
 // Procure your free API key here: https://openweathermap.org/price
 // Replace API_KEY in app.js with your API key
+
+//using multiple worker.start calls resuls in multiple [MSW] Mocking Enabled logs in the dev console
 worker.start()
+worker.start()
+worker.start()
+worker.start()
+worker.start()
+
+
 
 ReactDOM.render(
   <React.StrictMode>
