@@ -30,7 +30,7 @@ function App() {
     <div className="App">
       <div>
         <h1>
-          If you want to run this app against mock data, uncomment the following line in index.js
+          If you want to run this app against live data, comment out the following line in index.js. Then procure an API key for free from <a href="https://openweathermap.org/price">https://openweathermap.org/price</a> and replace API_KEY in App.js.
         </h1>
         <p>
           <code>
